@@ -1,8 +1,7 @@
 package visao;
 
-import java.time.LocalDate;
-
 import dominio.ClasseProduto;
+import java.time.LocalDate;
 
 public class ClasseProdutoVisao {
     public void Exibir() {
