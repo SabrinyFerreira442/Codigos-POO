@@ -6,8 +6,16 @@ public class ClasseProduto extends BaseParametro {
     public ClasseProduto() {
         super();  /*representa a classe pai*/
     }
-
-    public ClasseProduto(int codigo, String descricao, LocalDate dataDeInclusao) {
-        super(codigo, descricao, dataDeInclusao);
+    public ClasseProduto(int codigo, String descricao, LocalDate dataInclusao) {
+        super(codigo, descricao, dataInclusao);
+    }
+    
+    @Override
+    public String toString(){
+        String msg = "ClasseProduto";
+        msg += "\n\tcodigo=" + codigo;
+        msg += "\n\tdescricao=" + descricao;
+        msg += "\n\tdataInclusao=" + dataInclusao;
+        return msg;
     }
 }

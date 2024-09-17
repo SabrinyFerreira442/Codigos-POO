@@ -12,10 +12,14 @@ public class ClasseProdutoRepo extends BaseRepositorio<ClasseProduto> {
         this.dados = this.db.getTabela();
     }
 
+    public ClasseProdutoRepo(ClasseProdutoFakeDB db) {
+        this.db = db;
+    }
+
     @Override
     public ClasseProduto Read(int chave) {
-        for (ClasseProduto cp : dados) {
-            if (chave == cp.getCodigo()){
+        for (ClasseProduto cp : this.dados) {
+            if (cp.getCodigo() == chave){
                 return cp;
             }
         }
@@ -36,9 +40,7 @@ public class ClasseProdutoRepo extends BaseRepositorio<ClasseProduto> {
 
     @Override
     public ClasseProduto Add(ClasseProduto instancia) {
-        int pos = this.dados.size() - 1;
-        ClasseProduto cp = this.dados.get(pos);
-        int proxChave = cp.getCodigo() + 1;
+        int proxChave = this.dados.getLast().getCodigo()+ 1;
         instancia.setCodigo(proxChave);
         this.dados.add(instancia);
         return instancia;

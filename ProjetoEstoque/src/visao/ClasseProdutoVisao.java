@@ -1,26 +1,29 @@
 package visao;
 
 import dominio.ClasseProduto;
-import java.time.LocalDate;
+import java.util.ArrayList;
+import servico.ClasseProdutoServico;
 
 public class ClasseProdutoVisao {
+    public ClasseProdutoVisao(){
+
+    }
+    
     public void Exibir() {
-        ClasseProduto cp1 = new ClasseProduto();
-        cp1.setCodigo(1);
-        cp1.setDescricao("Carnes");
-        cp1.setDataDeInclusao(LocalDate.now());
+        ClasseProdutoServico srv = new ClasseProdutoServico();
+        ArrayList<ClasseProduto> lista = srv.Navegar();
 
-        System.out.println("Classe de Produto:");
-        System.out.println("Codigo: " + cp1.getCodigo());
-        System.out.println("Descrição: " + cp1.getDescricao());
-        System.out.println("Data de Inclusão: " + cp1.getDataDeInclusao());
-
-        ClasseProduto cp2 = new ClasseProduto(2, "Bebidas", LocalDate.now());
-
-        System.out.println("Classe de Produto:");
-        System.out.println("Codigo: " + cp2.getCodigo());
-        System.out.println("Descrição: " + cp2.getDescricao());
-        System.out.println("Data de Inclusão: " + cp2.getDataDeInclusao());
-
+        System.out.println("============================================================================================");
+        for (ClasseProduto cp : lista){
+            this.Imprimir(cp);
+        }
+    }
+    
+    private void Imprimir(ClasseProduto cp){
+            System.out.println("Classe de Produto:");
+            System.out.println("Código: " + cp.getCodigo());
+            System.out.println("Descrição: " + cp.getDescricao());
+            System.out.println("Data de Inclusão: " + cp.getDataInclusao());
+            System.out.println("--------------------------------------------------------");
     }
 }
