@@ -1,8 +1,7 @@
 package servico;
 
-import java.util.ArrayList;
-
 import dominio.ClasseProduto;
+import java.util.ArrayList;
 import repositorio.ClasseProdutoRepo;
 
 public class ClasseProdutoServico extends BaseServico<ClasseProduto> {
@@ -36,6 +35,10 @@ public class ClasseProdutoServico extends BaseServico<ClasseProduto> {
     @Override
     public ClasseProduto Deletar(int chave) {
         return this.repositorio.Delete(chave); 
+    }
+
+    public void setRepositorio(ClasseProdutoRepo repositorio) {
+        this.repositorio = repositorio;
     }
 
 } 
